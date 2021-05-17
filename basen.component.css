@@ -1,0 +1,29 @@
+ul{
+  list-style: none;
+}
+
+.header{
+  text-align: center;
+  width:100%;
+}
+.show{
+  float: left;
+  text-align: center;
+  width: 55%;
+  height: 50%;
+}
+.acctraction{
+  float: left;
+  text-align: center;
+  width:50%;
+  height: 50%;
+}
+.editShow{
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  width: 100%;
+}
+.editShow, button{
+  margin-left: 16px;
+}

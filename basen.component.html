@@ -1,0 +1,96 @@
+<div class="header">
+  <h1>Kasa</h1>
+</div>
+<div class="show">
+  <h2>{{basenName}}</h2>
+
+  <h3>Lokalizacja</h3>
+
+  <ul>
+    <li>Miasto: {{address.city}}</li>
+    <li>Ulica: {{address.street}} {{address.number}}</li>
+  </ul>
+
+  <h3>Ceny biletów</h3>
+
+  <ul>
+    <li>Ulgowy: {{bilet.seniora}} zł</li>
+    <li>Normalny: {{bilet.normalny}} zł</li>
+  </ul>
+</div>
+
+<div class="acctraction">
+  <h2>Aktualny Repertuar:</h2>
+
+  <ul>
+    <li *ngFor="let acttraction of attractions; let i = index">
+      {{acttraction}}
+    </li>
+  </ul>
+
+
+</div>
+
+<div class="editShow">
+  <hr>
+  <div>
+    <button (click)="changeEditMode()">Zmien Dane</button>
+  </div>
+
+  <div *ngIf="editMode">
+
+    <h2>Zmien Dane:</h2>
+
+    <form>
+      <div>
+        <label>Nazwa Basenu: </label>
+        <input type="text" [(ngModel)]="basenName" name="basenName">
+      </div>
+
+      <div>
+        <label><h3>Adres:</h3></label>
+      </div>
+
+      <div>
+        <label>Miasto: </label>
+        <input type="text" [(ngModel)]="address.city" name="address.city">
+      </div>
+
+      <div>
+        <label>Ulica i numer: </label>
+        <input type="text" [(ngModel)]="address.street" name="address.street">
+        <input type="number" [(ngModel)]="address.number" name="address.number">
+      </div>
+
+      <div>
+        <label><h3>Bilety:</h3></label>
+      </div>
+
+      <div>
+        <label>Seniora: </label>
+        <input type="text" [(ngModel)]="bilet.seniora" name="bilet.seniora">
+      </div>
+
+      <div>
+        <label>Normalny: </label>
+        <input type="text" [(ngModel)]="bilet.normalny" name="bilet.normalny">
+      </div>
+
+      <div>
+        <label><h3>Dodawanie lub Rezygnacja z atrakcji :</h3></label>
+      </div>
+
+      <div>
+        <label for="acttractionField">Acttraction: </label>
+        <input type="text" #acttraction id="acttractionField">
+        <button (click)="addActtraction(acttraction.value)">Dodaj atrakcje</button>
+      </div>
+    </form>
+
+    <ul>
+      <li *ngFor="let acttraction of attractions; let i = index">
+        {{acttraction}} <button (click)="deleteActtraction(acttraction)" >Zrezygnuj z atrakcji</button>
+      </li>
+    </ul>
+  </div>
+</div>
